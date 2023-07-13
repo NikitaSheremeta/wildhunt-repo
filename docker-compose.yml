@@ -8,7 +8,7 @@ services:
       - "nexus-data:/sonatype-work"
   nginx:
     image: nginx:latest
-    container_name: wildhunt-repo-nexus
+    container_name: wildhunt-repo-nginx
     restart: always
     ports:
       - "81:80"
