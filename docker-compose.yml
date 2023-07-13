@@ -1,11 +1,5 @@
 version: "3.9"
 services:
-  nexus:
-    image: sonatype/nexus3
-    container_name: wildhunt-repo-nexus
-    restart: always
-    volumes:
-      - "nexus-data:/sonatype-work"
   nginx:
     image: nginx:latest
     container_name: wildhunt-repo-nginx
@@ -13,8 +7,12 @@ services:
     ports:
       - "81:80"
     volumes:
-      - "/docker/nginx/conf.d/default.conf: /etc/nginx/conf.d/default.conf"
-    depends_on:
-      - nexus
+      - "./.docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf"
+  nexus:
+    image: sonatype/nexus3
+    container_name: wildhunt-repo-nexus
+    restart: always
+    volumes:
+      - "nexus-data:/sonatype-work"
 volumes:
   nexus-data: {}
