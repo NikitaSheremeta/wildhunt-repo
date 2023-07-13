@@ -1,14 +1,14 @@
 version: "3.9"
 services:
   nginx:
-    container_name: nginx
+    container_name: wildhunt-repo-nginx
     build:
       context: .docker/nginx
     ports:
       - "81:80"
     restart: always
   nexus:
-    container_name: nexus
+    container_name: wildhunt-repo-nexus
     image: sonatype/nexus3
     restart: always
     volumes:
