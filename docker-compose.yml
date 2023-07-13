@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  nginx:
+    container_name: nginx
+    build:
+      context: .docker/nginx
+    ports:
+      - "81:80"
+    restart: always
+  nexus:
+    container_name: nexus
+    image: sonatype/nexus3
+    restart: always
+    volumes:
+      - "nexus-data:/sonatype-work"
+    ports:
+      - "8081:8081"
+    depends_on:
+      - nginx
+volumes:
+  nexus-data: {}
