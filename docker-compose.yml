@@ -12,5 +12,7 @@ services:
     container_name: wildhunt-repo-nexus
     volumes:
       - "nexus-data:/sonatype-work"
+    ports:
+      - "8081:8081"
 volumes:
   nexus-data: {}
