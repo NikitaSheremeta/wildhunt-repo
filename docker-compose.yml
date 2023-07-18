@@ -5,8 +5,8 @@ services:
     container_name: wildhunt-repo-nginx
     volumes:
       - "./.docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf"
-      - "./.docker/nginx/cert/bundle.cer:/etc/nginx/bundle.cer"
-      - "./.docker/nginx/cert/repo.minecraft-wildhunt.com.key:/etc/nginx/ssl/repo.minecraft-wildhunt.com.key"
+      - "./.docker/nginx/cert/repo_minecraft-wildhunt_com.crt:/etc/ssl/crt/repo_minecraft-wildhunt_com.crt"
+      - "./.docker/nginx/cert/repo_minecraft-wildhunt_com.key:/etc/ssl/key/repo_minecraft-wildhunt_com.key"
     ports:
       - "443:443"
       - "80:80"
